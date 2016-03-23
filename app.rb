@@ -12,9 +12,9 @@ get '/' do
 end
 
 get '/account' do
-  @accounts              = Account.new
-  @accounts.name         = Faker::Name.name
-  @accounts.email        = Faker::Internet.email
+  @accounts                  = Account.new
+  @accounts.name             = Faker::Name.name
+  @accounts.email            = Faker::Internet.email
   @accounts.password_hash    = Faker::Internet.password
   @accounts.save
   Account.all.to_json
@@ -29,11 +29,30 @@ get '/cart' do
   Cart.all.to_json
 end
 
-get '/profiles' do
-  @profiles               = Profile.new
-  @profiles.name          = Faker::Name.name
-  @profiles.profile_about = Faker::Lorem.sentence
-  @profiles.age           = Faker::Number.between(21, 100)
-  @profiles.save
-  Profile.all.to_json
+get '/book' do
+  @books               = Book.new
+  @books.title         = Faker::Book.title
+  @books.author        = Faker::Book.author
+  @books.genre         = Faker::Book.genre
+  @books.save
+  Book.all.to_json
+end
+
+get '/team' do
+  @teams               = Team.new
+  @teams.team_name     = Faker::Team.name
+  @teams.state         = Faker::Team.state
+  @teams.sport         = Faker::Team.sport
+  @teams.save
+  Team.all.to_json
+end
+
+
+get '/app' do
+  @apps               = App.new
+  @apps.name          = Faker::App.name
+  @apps.author        = Faker::App.author
+  @apps.version       = Faker::App.version
+  @apps.save
+  App.all.to_json
 end
