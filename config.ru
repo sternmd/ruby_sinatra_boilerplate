@@ -1,2 +1,9 @@
 require './app' #loads app.rb
-run Sinatra::Application # run Sinatra application class
+
+require './models/profile'
+
+require './models/cart'
+
+require './models/account'
+
+run Sinatra::Application
